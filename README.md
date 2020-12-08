@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.com/D-Kamunya/hms_api.svg?branch=master)](https://travis-ci.com/D-Kamunya/hms_api)
