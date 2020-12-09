@@ -17,7 +17,7 @@ class ServiceTestClass(TestCase):
         
     def test_model_can_create_a_service(self):
 
-        """Test the service model can create a service."""
+        """Test the service model can create a service"""
 
         self.new_service.save()
         count = Service.objects.count()
