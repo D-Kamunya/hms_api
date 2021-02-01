@@ -9,7 +9,7 @@ jobs:
         environment:
           POSTGRES_USER: test-user
           POSTGRES_DB: test-db
-          POSTGRES_PASSWORD: ""
+          POSTGRES_PASSWORD: "test"
       # used to specify where a job's steps run
     working_directory: ~/repo
 
