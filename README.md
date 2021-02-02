@@ -1,5 +1,5 @@
 # HMS-API
-[![CircleCI](https://circleci.com/gh/D-Kamunya/hms-_/tree/master.svg?style=svg)](https://circleci.com/gh/D-Kamunya/hms_api/tree/master)
+[![CircleCI](https://circleci.com/gh/D-Kamunya/hms_api/tree/master.svg?style=svg)](https://circleci.com/gh/D-Kamunya/hms_api/tree/master)
 
 [![codecov](https://codecov.io/gh/D-Kamunya/hms_api/branch/master/graph/badge.svg?token=1UEY3WQNB1)](https://codecov.io/gh/D-Kamunya/hms_api)
 
