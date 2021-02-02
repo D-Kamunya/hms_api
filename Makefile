@@ -24,14 +24,9 @@ serve:
 shell:
 	python manage.py shell
 
-daphne:
-	daphne -b 0.0.0.0 -p 8000 erp_apiv2.asgi:application
 
 set_env_vars:
 	source venv/bin/activate;
 
-
-hard_delete:
-	python3 manage.py dropstalenotifications
 
 .PHONY: set_env_vars
