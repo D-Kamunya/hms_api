@@ -89,7 +89,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'cloudinary', 
     'mpesa_api.apps.MpesaApiConfig',
-    "sslserver",
+    'sslserver',
+    'drf_yasg'
 ]
 
 

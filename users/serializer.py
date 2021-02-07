@@ -10,7 +10,7 @@ from rest_framework.exceptions import AuthenticationFailed
 
 
 # User serializer
-class UserSerializer(serializers.ModelSerializer):
+class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id','first_name', 'last_name','role','address','mobile', 'email') 
@@ -18,7 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 # Doctor serializer
 class DocSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True, many=False)
+    user = CustomUserSerializer(read_only=True, many=False)
     class Meta:
         model = Doctor
         fields = '__all__'
@@ -26,7 +26,7 @@ class DocSerializer(serializers.ModelSerializer):
 
 # Patient serializer
 class PatientSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True, many=False)
+    user = CustomUserSerializer(read_only=True, many=False)
     class Meta:
         model = Patient
         fields = '__all__'
@@ -55,12 +55,6 @@ class UserLoginSerializer(serializers.Serializer):
     refresh = serializers.CharField(read_only=True)
     role = serializers.CharField(read_only=True)
     is_verified = serializers.BooleanField(read_only=True)
-
-    def create(self, validated_date):
-        pass
-
-    def update(self, instance, validated_data):
-        pass
 
     def validate(self, data):
         email = data['email']
