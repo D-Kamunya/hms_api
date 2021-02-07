@@ -2,11 +2,7 @@ from rest_framework import  serializers
 from .models import Case,Appointment,Bill, Medication, Service
 from users.models import CustomUser as User
 from django.db.models import fields
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('id','first_name', 'last_name','role','mobile', 'email')   
+from users.serializer import CustomUserSerializer 
 
 
 class MedicationSerializer(serializers.ModelSerializer):
@@ -21,8 +17,8 @@ class ServiceSerializer(serializers.ModelSerializer):
         
 
 class CaseListSerializer(serializers.ModelSerializer):
-    patient = UserSerializer(read_only=True, many=False)
-    doctor = UserSerializer(read_only=True, many=False)
+    patient = CustomUserSerializer(read_only=True, many=False)
+    doctor = CustomUserSerializer(read_only=True, many=False)
     medication = MedicationSerializer(read_only=True, many=False)
     service = ServiceSerializer(read_only=True, many=False)
     class Meta:
@@ -40,8 +36,8 @@ class AppointmentSerializer(serializers.ModelSerializer):
       fields='__all__'
 
 class AppointmentListSerializer(serializers.ModelSerializer):
-    patient = UserSerializer(read_only=True, many=False)
-    doctor = UserSerializer(read_only=True, many=False)
+    patient = CustomUserSerializer(read_only=True, many=False)
+    doctor = CustomUserSerializer(read_only=True, many=False)
     class Meta:
         model = Appointment
         fields = '__all__'      
