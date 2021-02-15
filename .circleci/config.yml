@@ -4,12 +4,13 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/python:3.6.4 # primary container for the build job
-      - image: circleci/postgres:9.6.2-alpine # an example of how to specify a service container
+      - image: cimg/python:3.6.10
         environment:
-          POSTGRES_USER:  test-user
-          POSTGRES_DB: test-db
-          POSTGRES_PASSWORD: ""
+          DATABASE_URL: postgresql://root@localhost/circle_test?sslmode=disable
+      - image: circleci/postgres:9.6.2
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: circle_test
       # used to specify where a job's steps run
     working_directory: ~/repo
 
