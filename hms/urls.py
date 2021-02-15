@@ -28,8 +28,15 @@ schema_view = get_schema_view(
     ),
     public=True,
 )
+
+
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
+    
 urlpatterns = [
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('sentry-debug/', trigger_error),
     path('admin/', admin.site.urls),
     path('hms/', include('hmsapp.urls')),
     path('accounts/',include('users.urls')),

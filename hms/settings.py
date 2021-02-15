@@ -17,6 +17,9 @@ from datetime import timedelta
 import cloudinary
 import django_heroku
 import dj_database_url
+
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 
@@ -49,6 +52,15 @@ else:
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
+sentry_sdk.init(
+    dsn="https://3d4dc8d0383f432185d4d36b6a6227d2@o524876.ingest.sentry.io/5638055",
+    integrations=[DjangoIntegration()],
+    traces_sample_rate=1.0,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
