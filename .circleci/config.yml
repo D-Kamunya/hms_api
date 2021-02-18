@@ -2,12 +2,12 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/python:3.6.4 # primary container for the build job
-      - image: circleci/postgres:9.6.2-alpine # an example of how to specify a service container
+      - image: circleci/python:3.6.1 # primary container for the build job
+      - image: circleci/postgres:10.6-alpine-ram # an example of how to specify a service container
         environment:
-          POSTGRES_USER:  test
-          POSTGRES_DB: postgres
-          POSTGRES_PASSWORD: secret
+          POSTGRES_USER: test-user
+          POSTGRES_DB: test-db
+          POSTGRES_PASSWORD: ""
       # used to specify where a job's steps run
     working_directory: ~/repo
 
