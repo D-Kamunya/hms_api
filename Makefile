@@ -9,9 +9,6 @@ migrations:
 migrate:
 	python3 manage.py migrate
 
-celery:
-	celery -A erp_apiv2  worker -B -l info
-
 superuser:
 	python manage.py createsuperuser
 
@@ -23,10 +20,3 @@ serve:
 
 shell:
 	python manage.py shell
-
-
-set_env_vars:
-	source venv/bin/activate;
-
-
-.PHONY: set_env_vars

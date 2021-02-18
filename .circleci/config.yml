@@ -17,7 +17,6 @@ jobs:
     steps:
       # checkout is used to check out source code
       - checkout
-    
       # Download and cache dependencies
       # Download and cache dependencies
       - restore_cache:
@@ -49,8 +48,4 @@ jobs:
           no_output_timeout: 30m
           command: |
             . venv/bin/activate
-            python3 -m pytest --junitxml=junit/test-results.xml --cov --cov-report=xml --cov-report=html
-
-      - codecov/upload:
-          token: 187f2ca1-42a0-4632-8e84-4b8f86fc290f
-
+            pytest --cov-report term-missing --cov -p no:warnings
